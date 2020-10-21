@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tendytudo_demo/pages/home/home_page.dart';
+import 'package:tendytudo_demo/pages/profile/profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: Profile(),
     );
   }
 }
