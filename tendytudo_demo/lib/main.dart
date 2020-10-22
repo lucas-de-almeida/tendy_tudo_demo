@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tendytudo_demo/pages/filters/filter_page.dart';
 import 'package:tendytudo_demo/pages/home/home_page.dart';
 import 'package:tendytudo_demo/pages/profile/profile.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Profile(),
+      home: FiltersPage(),
     );
   }
 }
