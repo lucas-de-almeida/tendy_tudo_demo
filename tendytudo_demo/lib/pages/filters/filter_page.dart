@@ -8,7 +8,9 @@ class FiltersPage extends StatefulWidget {
 }
 
 class _FiltersPageState extends State<FiltersPage> {
+  List<String> filter = List<String>();
   double _value = 0.0;
+  bool _v = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,14 +42,34 @@ class _FiltersPageState extends State<FiltersPage> {
                       children: [
                         Row(
                           children: [
-                            Checkbox(value: false, onChanged: null),
+                            Checkbox(
+                              value: _v,
+                              onChanged: (value) {
+                                setState(() {
+                                  _v = value;
+                                });
+                                if (_v) {
+                                  filter.add('Ordenar pelo maior valor');
+                                }
+                              },
+                            ),
                             Text('Ordenar pelo maior valor'),
                           ],
                         ),
                         Row(
                           children: [
-                            Checkbox(value: false, onChanged: null),
-                            Text('Ordenar pelo maior valor'),
+                            Checkbox(
+                              value: _v,
+                              onChanged: (value) {
+                                setState(() {
+                                  _v = value;
+                                });
+                                if (_v) {
+                                  filter.add('Ordenar pelo menor valor');
+                                }
+                              },
+                            ),
+                            Text('Ordenar pelo menor valor'),
                           ],
                         ),
                       ],
@@ -63,13 +85,33 @@ class _FiltersPageState extends State<FiltersPage> {
                       children: [
                         Row(
                           children: [
-                            Checkbox(value: false, onChanged: null),
+                            Checkbox(
+                              value: _v,
+                              onChanged: (value) {
+                                setState(() {
+                                  _v = value;
+                                });
+                                if (_v) {
+                                  filter.add('Ordenar pelo menor valor');
+                                }
+                              },
+                            ),
                             Text('Ordenar pelo maior valor'),
                           ],
                         ),
                         Row(
                           children: [
-                            Checkbox(value: false, onChanged: null),
+                            Checkbox(
+                              value: _v,
+                              onChanged: (value) {
+                                setState(() {
+                                  _v = value;
+                                });
+                                if (_v) {
+                                  filter.add('Ordenar pelo menor valor');
+                                }
+                              },
+                            ),
                             Text('Ordenar pelo menor valor'),
                           ],
                         ),
@@ -86,13 +128,30 @@ class _FiltersPageState extends State<FiltersPage> {
                       children: [
                         Row(
                           children: [
-                            Checkbox(value: false, onChanged: null),
+                            Checkbox(
+                              value: _v,
+                              onChanged: (value) {
+                                setState(() {
+                                  _v = value;
+                                });
+                              },
+                            ),
                             Text('Ordenar pelo melhor avaliação'),
                           ],
                         ),
                         Row(
                           children: [
-                            Checkbox(value: false, onChanged: null),
+                            Checkbox(
+                              value: _v,
+                              onChanged: (value) {
+                                setState(() {
+                                  _v = value;
+                                });
+                                if (_v) {
+                                  filter.add('Ordenar pelo menor valor');
+                                }
+                              },
+                            ),
                             Text('Ordenar pelo menor avaliação'),
                           ],
                         ),
@@ -109,13 +168,33 @@ class _FiltersPageState extends State<FiltersPage> {
                       children: [
                         Row(
                           children: [
-                            Checkbox(value: false, onChanged: null),
+                            Checkbox(
+                              value: _v,
+                              onChanged: (value) {
+                                setState(() {
+                                  _v = value;
+                                });
+                                if (_v) {
+                                  filter.add('Ordenar pelo menor valor');
+                                }
+                              },
+                            ),
                             Text('Ordenar pelo maior Tempo de entrega'),
                           ],
                         ),
                         Row(
                           children: [
-                            Checkbox(value: false, onChanged: null),
+                            Checkbox(
+                              value: _v,
+                              onChanged: (value) {
+                                setState(() {
+                                  _v = value;
+                                });
+                                if (_v) {
+                                  filter.add('Ordenar pelo menor valor');
+                                }
+                              },
+                            ),
                             Text('Ordenar pelo menor Tempo de entrega'),
                           ],
                         ),
@@ -132,13 +211,33 @@ class _FiltersPageState extends State<FiltersPage> {
                       children: [
                         Row(
                           children: [
-                            Checkbox(value: false, onChanged: null),
+                            Checkbox(
+                              value: _v,
+                              onChanged: (value) {
+                                setState(() {
+                                  _v = value;
+                                });
+                                if (_v) {
+                                  filter.add('Ordenar pelo menor valor');
+                                }
+                              },
+                            ),
                             Text('Ordenar pelo maior taxa de entrega'),
                           ],
                         ),
                         Row(
                           children: [
-                            Checkbox(value: false, onChanged: null),
+                            Checkbox(
+                              value: _v,
+                              onChanged: (value) {
+                                setState(() {
+                                  _v = value;
+                                });
+                                if (_v) {
+                                  filter.add('Ordenar pelo menor valor');
+                                }
+                              },
+                            ),
                             Text('Ordenar pelo menor taxa de entrega'),
                           ],
                         ),
@@ -173,6 +272,7 @@ class _FiltersPageState extends State<FiltersPage> {
                                   setState(() {
                                     _value = value;
                                   });
+                                  filter.add('Distancia ${_value.round()} KM');
                                 },
                               ),
                             ),
@@ -187,7 +287,9 @@ class _FiltersPageState extends State<FiltersPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GFButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed('/result_filter', arguments: filter);
+                  },
                   text: "Procurar",
                   color: Color(0xFF007838),
                   size: GFSize.MEDIUM,
