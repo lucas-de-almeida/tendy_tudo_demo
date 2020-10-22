@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tendytudo_demo/pages/filters/filter_page.dart';
 import 'package:tendytudo_demo/pages/home/home_page.dart';
 import 'package:tendytudo_demo/pages/profile/profile.dart';
 
@@ -9,9 +11,23 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Profile(),
+      initialRoute: '/',
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () => HomePage(),
+        ),
+        GetPage(
+          name: '/filter',
+          page: () => FiltersPage(),
+        ),
+        GetPage(
+          name: '/profile',
+          page: () => ProfilePage(),
+        ),
+      ],
     );
   }
 }
