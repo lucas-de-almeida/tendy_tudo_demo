@@ -79,6 +79,7 @@ class _ResultFilterPageState extends State<ResultFilterPage> {
               'Encontrados: ${_resultFilter.length} ',
               style: TextStyle(color: Colors.blue),
             ),
+
             /*            buildCard('assets/shop.png'),
             buildDescription('Mercado de esquina',
                 'na avenida teste, numero 2, bairro: teste, Cidade: teste'), */
