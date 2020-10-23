@@ -50,6 +50,7 @@ class _FiltersPageState extends State<FiltersPage> {
                                 });
                                 if (_v) {
                                   filter.add('Ordenar pelo maior valor');
+                                  print(filter);
                                 }
                               },
                             ),
