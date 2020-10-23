@@ -17,7 +17,7 @@ class _FiltersPageState extends State<FiltersPage> {
       appBar: AppBar(
         title: Text('Procurar...'),
         backgroundColor: Color(0xFF007838),
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: Icon(Icons.clear),
@@ -45,22 +45,26 @@ class _FiltersPageState extends State<FiltersPage> {
                           children: [
                             Row(
                               children: [
-                                Checkbox(
-                                  value: _.isValue1,
-                                  onChanged: (value) {
-                                    _.toggleIsValue1();
-                                  },
+                                Obx(
+                                  () => Checkbox(
+                                    value: _.isValue1,
+                                    onChanged: (bool value) {
+                                      _.toggleValue1();
+                                    },
+                                  ),
                                 ),
                                 Text('Ordenar pelo maior valor'),
                               ],
                             ),
                             Row(
                               children: [
-                                Checkbox(
-                                  value: _.isValue2,
-                                  onChanged: (value) {
-                                    _.toggleIsValue2();
-                                  },
+                                Obx(
+                                  () => Checkbox(
+                                    value: _.isValue2,
+                                    onChanged: (value) {
+                                      _.toggleValue2();
+                                    },
+                                  ),
                                 ),
                                 Text('Ordenar pelo menor valor'),
                               ],
@@ -78,23 +82,23 @@ class _FiltersPageState extends State<FiltersPage> {
                           children: [
                             Row(
                               children: [
-                                Checkbox(
-                                  value: _.isValue3,
-                                  onChanged: (value) {
-                                    _.toggleIsValue3();
-                                  },
-                                ),
+                                Obx(() => Checkbox(
+                                      value: _.isValue3,
+                                      onChanged: (value) {
+                                        _.toggleValue3();
+                                      },
+                                    )),
                                 Text('Ordenar pelo maior valor'),
                               ],
                             ),
                             Row(
                               children: [
-                                Checkbox(
-                                  value: _.isValue4,
-                                  onChanged: (value) {
-                                    _.toggleIsValue4();
-                                  },
-                                ),
+                                Obx(() => Checkbox(
+                                      value: _.isValue4,
+                                      onChanged: (value) {
+                                        _.toggleValue4();
+                                      },
+                                    )),
                                 Text('Ordenar pelo menor valor'),
                               ],
                             ),
@@ -111,23 +115,23 @@ class _FiltersPageState extends State<FiltersPage> {
                           children: [
                             Row(
                               children: [
-                                Checkbox(
-                                  value: _.isValue5,
-                                  onChanged: (value) {
-                                    _.toggleIsValue5();
-                                  },
-                                ),
+                                Obx(() => Checkbox(
+                                      value: _.isValue5,
+                                      onChanged: (value) {
+                                        _.toggleValue5();
+                                      },
+                                    )),
                                 Text('Ordenar pelo melhor avaliação'),
                               ],
                             ),
                             Row(
                               children: [
-                                Checkbox(
-                                  value: _.isValue6,
-                                  onChanged: (value) {
-                                    _.toggleIsValue6();
-                                  },
-                                ),
+                                Obx(() => Checkbox(
+                                      value: _.isValue6,
+                                      onChanged: (value) {
+                                        _.toggleValue6();
+                                      },
+                                    )),
                                 Text('Ordenar pelo menor avaliação'),
                               ],
                             ),
@@ -144,23 +148,23 @@ class _FiltersPageState extends State<FiltersPage> {
                           children: [
                             Row(
                               children: [
-                                Checkbox(
-                                  value: _.isValue7,
-                                  onChanged: (value) {
-                                    _.toggleIsValue7();
-                                  },
-                                ),
+                                Obx(() => Checkbox(
+                                      value: _.isValue7,
+                                      onChanged: (value) {
+                                        _.toggleValue7();
+                                      },
+                                    )),
                                 Text('Ordenar pelo maior Tempo de entrega'),
                               ],
                             ),
                             Row(
                               children: [
-                                Checkbox(
-                                  value: _.isValue8,
-                                  onChanged: (value) {
-                                    _.toggleIsValue8();
-                                  },
-                                ),
+                                Obx(() => Checkbox(
+                                      value: _.isValue8,
+                                      onChanged: (value) {
+                                        _.toggleValue8();
+                                      },
+                                    )),
                                 Text('Ordenar pelo menor Tempo de entrega'),
                               ],
                             ),
@@ -177,23 +181,23 @@ class _FiltersPageState extends State<FiltersPage> {
                           children: [
                             Row(
                               children: [
-                                Checkbox(
-                                  value: _.isValue9,
-                                  onChanged: (value) {
-                                    _.toggleIsValue9();
-                                  },
-                                ),
+                                Obx(() => Checkbox(
+                                      value: _.isValue9,
+                                      onChanged: (value) {
+                                        _.toggleValue9();
+                                      },
+                                    )),
                                 Text('Ordenar pelo maior taxa de entrega'),
                               ],
                             ),
                             Row(
                               children: [
-                                Checkbox(
-                                  value: _.isValue10,
-                                  onChanged: (value) {
-                                    _.toggleIsValue10();
-                                  },
-                                ),
+                                Obx(() => Checkbox(
+                                      value: _.isValue10,
+                                      onChanged: (value) {
+                                        _.toggleValue10();
+                                      },
+                                    )),
                                 Text('Ordenar pelo menor taxa de entrega'),
                               ],
                             ),
