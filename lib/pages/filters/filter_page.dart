@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 import 'package:tendytudo_demo/pages/filters/controllers/filter_controller.dart';
+import 'package:tendytudo_demo/pages/results_filter/components/default_card.dart';
 
 class FiltersPage extends StatefulWidget {
   @override
@@ -10,254 +12,537 @@ class FiltersPage extends StatefulWidget {
 
 class _FiltersPageState extends State<FiltersPage> {
   double _value = 0.0;
+  Color colorConst = Color(0xFF007838);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomSheet: GestureDetector(
+        child: Container(
+          color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SolidBottomSheet(
+              canUserSwipe: false,
+              autoSwiped: false,
+              headerBar: Container(
+                color: colorConst,
+                height: 50,
+                child: Container(
+                  child: Center(
+                    child: Text(
+                      "Ver 1 resultados",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              body: null,
+            ),
+          ),
+        ),
+        onTap: () {},
+      ),
       appBar: AppBar(
-        title: Text('Procurar...'),
+        title: Text('Filtros...'),
         backgroundColor: Color(0xFF007838),
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.clear),
-            onPressed: Get.back,
-          )
+        leading: IconButton(
+          icon: Icon(Icons.keyboard_arrow_left),
+          onPressed: Get.back,
+        ),
+        elevation: 0,
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () {},
+            child: Text(
+              'Limpar',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
         ],
       ),
-      body: Center(
+      body: Padding(
+        padding:
+            const EdgeInsets.only(top: 15, bottom: 120, left: 12, right: 10),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              GetBuilder<FilterController>(
-                init: FilterController(),
-                builder: (_) {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+          child: GetBuilder<FilterController>(
+            init: FilterController(),
+            builder: (_) {
+              return Column(
+                children: [
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Ordenar por:',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: colorConst,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  //ordenaçao botao/precos/avaliação
+                  Row(
                     children: [
-                      GFAccordion(
-                        title: 'Ordenação padrao',
-                        textStyle: TextStyle(color: Colors.white, fontSize: 16),
-                        collapsedTitleBackgroundColor: Color(0xFF007838),
-                        expandedTitleBackgroundColor: Color(0xFF007838),
-                        contentBackgroundColor: Colors.blueAccent,
-                        contentChild: Column(
+                      Obx(
+                        () => Column(
                           children: [
-                            Row(
-                              children: [
-                                Obx(
-                                  () => Checkbox(
-                                    value: _.isValue1,
-                                    onChanged: (bool value) {
-                                      _.toggleValue1();
-                                    },
+                            ClipOval(
+                              child: Material(
+                                color:
+                                    _.isChangeColor1 ? Colors.red : colorConst,
+                                child: InkWell(
+                                  child: SizedBox(
+                                    width: 70,
+                                    height: 70,
+                                    child: Icon(
+                                      Icons.elevator_outlined,
+                                      size: 50,
+                                      color: Colors.white,
+                                    ),
                                   ),
+                                  onTap: () {
+                                    _.toggleChangeColor1();
+                                  },
                                 ),
-                                Text('Ordenar pelo maior valor'),
-                              ],
+                              ),
                             ),
-                            Row(
-                              children: [
-                                Obx(
-                                  () => Checkbox(
-                                    value: _.isValue2,
-                                    onChanged: (value) {
-                                      _.toggleValue2();
-                                    },
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Ordenação padrão',
+                                softWrap: true,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: colorConst,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Obx(
+                        () => Column(
+                          children: [
+                            ClipOval(
+                              child: Material(
+                                color:
+                                    _.isChangeColor2 ? Colors.red : colorConst,
+                                child: InkWell(
+                                  child: SizedBox(
+                                      width: 70,
+                                      height: 70,
+                                      child: Icon(
+                                        Icons.monetization_on_outlined,
+                                        size: 50,
+                                        color: Colors.white,
+                                      )),
+                                  onTap: () {
+                                    _.toggleChangeColor2();
+                                  },
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Preços',
+                                softWrap: true,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: colorConst,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 30,
+                      ),
+                      Obx(
+                        () => Column(
+                          children: [
+                            ClipOval(
+                              child: Material(
+                                color:
+                                    _.isChangeColor3 ? Colors.red : colorConst,
+                                child: InkWell(
+                                  child: SizedBox(
+                                      width: 70,
+                                      height: 70,
+                                      child: Icon(
+                                        Icons.star,
+                                        size: 50,
+                                        color: Colors.white,
+                                      )),
+                                  onTap: () {
+                                    _.toggleChangeColor3();
+                                  },
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Avaliação',
+                                softWrap: true,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: colorConst,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  //tempo entrega /taxa, distancia
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Obx(
+                        () => Column(
+                          children: [
+                            ClipOval(
+                              child: Material(
+                                color:
+                                    _.isChangeColor4 ? Colors.red : colorConst,
+                                child: InkWell(
+                                  child: SizedBox(
+                                    width: 70,
+                                    height: 70,
+                                    child: Icon(
+                                      Icons.alarm,
+                                      size: 50,
+                                      color: Colors.white,
+                                    ),
                                   ),
+                                  onTap: () {
+                                    _.toggleChangeColor4();
+                                  },
                                 ),
-                                Text('Ordenar pelo menor valor'),
-                              ],
+                              ),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Tempo Entrega',
+                                softWrap: true,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: colorConst,
+                                ),
+                              ),
+                            )
                           ],
                         ),
                       ),
-                      GFAccordion(
-                        title: 'Preços',
-                        textStyle: TextStyle(color: Colors.white, fontSize: 16),
-                        collapsedTitleBackgroundColor: Color(0xFF007838),
-                        expandedTitleBackgroundColor: Color(0xFF007838),
-                        contentBackgroundColor: Colors.blueAccent,
-                        contentChild: Column(
+                      Obx(
+                        () => Column(
                           children: [
-                            Row(
-                              children: [
-                                Obx(() => Checkbox(
-                                      value: _.isValue3,
-                                      onChanged: (value) {
-                                        _.toggleValue3();
-                                      },
-                                    )),
-                                Text('Ordenar pelo maior valor'),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Obx(() => Checkbox(
-                                      value: _.isValue4,
-                                      onChanged: (value) {
-                                        _.toggleValue4();
-                                      },
-                                    )),
-                                Text('Ordenar pelo menor valor'),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      GFAccordion(
-                        title: 'Avaliação',
-                        textStyle: TextStyle(color: Colors.white, fontSize: 16),
-                        collapsedTitleBackgroundColor: Color(0xFF007838),
-                        expandedTitleBackgroundColor: Color(0xFF007838),
-                        contentBackgroundColor: Colors.blueAccent,
-                        contentChild: Column(
-                          children: [
-                            Row(
-                              children: [
-                                Obx(() => Checkbox(
-                                      value: _.isValue5,
-                                      onChanged: (value) {
-                                        _.toggleValue5();
-                                      },
-                                    )),
-                                Text('Ordenar pelo melhor avaliação'),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Obx(() => Checkbox(
-                                      value: _.isValue6,
-                                      onChanged: (value) {
-                                        _.toggleValue6();
-                                      },
-                                    )),
-                                Text('Ordenar pelo menor avaliação'),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      GFAccordion(
-                        title: 'Tempo de entrega',
-                        textStyle: TextStyle(color: Colors.white, fontSize: 16),
-                        collapsedTitleBackgroundColor: Color(0xFF007838),
-                        expandedTitleBackgroundColor: Color(0xFF007838),
-                        contentBackgroundColor: Colors.blueAccent,
-                        contentChild: Column(
-                          children: [
-                            Row(
-                              children: [
-                                Obx(() => Checkbox(
-                                      value: _.isValue7,
-                                      onChanged: (value) {
-                                        _.toggleValue7();
-                                      },
-                                    )),
-                                Text('Ordenar pelo maior Tempo de entrega'),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Obx(() => Checkbox(
-                                      value: _.isValue8,
-                                      onChanged: (value) {
-                                        _.toggleValue8();
-                                      },
-                                    )),
-                                Text('Ordenar pelo menor Tempo de entrega'),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      GFAccordion(
-                        title: 'Taxa de entrega',
-                        textStyle: TextStyle(color: Colors.white, fontSize: 16),
-                        collapsedTitleBackgroundColor: Color(0xFF007838),
-                        expandedTitleBackgroundColor: Color(0xFF007838),
-                        contentBackgroundColor: Colors.blueAccent,
-                        contentChild: Column(
-                          children: [
-                            Row(
-                              children: [
-                                Obx(() => Checkbox(
-                                      value: _.isValue9,
-                                      onChanged: (value) {
-                                        _.toggleValue9();
-                                      },
-                                    )),
-                                Text('Ordenar pelo maior taxa de entrega'),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Obx(() => Checkbox(
-                                      value: _.isValue10,
-                                      onChanged: (value) {
-                                        _.toggleValue10();
-                                      },
-                                    )),
-                                Text('Ordenar pelo menor taxa de entrega'),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      GFAccordion(
-                        title: 'Distancia',
-                        textStyle: TextStyle(color: Colors.white, fontSize: 16),
-                        collapsedTitleBackgroundColor: Color(0xFF007838),
-                        expandedTitleBackgroundColor: Color(0xFF007838),
-                        contentBackgroundColor: Colors.blueAccent,
-                        contentChild: Column(
-                          children: [
-                            Text(
-                              'Distancia maxima de 30 km',
-                            ),
-                            Row(
-                              children: [
-                                Text('0'),
-                                Expanded(
-                                  flex: 30,
-                                  child: Slider(
-                                    value: _value,
-                                    activeColor: Colors.black,
-                                    inactiveColor: Colors.black,
-                                    min: 0.0,
-                                    max: 30.0,
-                                    divisions: 100,
-                                    label: '${_value.round()}',
-                                    onChanged: (value) {
-                                      setState(() {
-                                        _value = value;
-                                      });
-                                    },
+                            ClipOval(
+                              child: Material(
+                                color:
+                                    _.isChangeColor5 ? Colors.red : colorConst,
+                                child: InkWell(
+                                  child: SizedBox(
+                                    width: 70,
+                                    height: 70,
+                                    child: Icon(
+                                      Icons.search,
+                                      size: 50,
+                                      color: Colors.white,
+                                    ),
                                   ),
+                                  onTap: () {
+                                    _.toggleChangeColor5();
+                                  },
                                 ),
-                                Text('30'),
-                              ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Taxas entrega',
+                                softWrap: true,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: colorConst,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Obx(
+                        () => Column(
+                          children: [
+                            ClipOval(
+                              child: Material(
+                                color:
+                                    _.isChangeColor6 ? Colors.red : colorConst,
+                                child: InkWell(
+                                  child: SizedBox(
+                                      width: 70,
+                                      height: 70,
+                                      child: Icon(
+                                        Icons.location_on,
+                                        size: 50,
+                                        color: Colors.white,
+                                      )),
+                                  onTap: () {
+                                    _.toggleChangeColor6();
+                                  },
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Distancia',
+                                softWrap: true,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: colorConst,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Text(
+                    'Distancia maxima de 30 km',
+                    style: TextStyle(
+                      color: colorConst,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        '0',
+                        style: TextStyle(
+                          color: colorConst,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 30,
+                        child: Slider(
+                          value: _value,
+                          activeColor: colorConst,
+                          inactiveColor: colorConst,
+                          min: 0.0,
+                          max: 30.0,
+                          divisions: 100,
+                          label: '${_value.round()}',
+                          onChanged: (value) {
+                            setState(() {
+                              _value = value;
+                            });
+                          },
+                        ),
+                      ),
+                      Text(
+                        '30',
+                        style: TextStyle(
+                          color: colorConst,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Taxas de entrega:',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: colorConst),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Row(
+                    children: [
+                      Obx(
+                        () => Column(
+                          children: [
+                            GestureDetector(
+                              child: Container(
+                                width: 100,
+                                child: DefaultCard(
+                                  color: _.isChangeColor7
+                                      ? Colors.red
+                                      : colorConst,
+                                  labelText: 'Gratis',
+                                  textColor: Colors.white,
+                                ),
+                              ),
+                              onTap: _.toggleChangeColor7,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Obx(
+                        () => Column(
+                          children: [
+                            GestureDetector(
+                              child: Container(
+                                width: 100,
+                                child: DefaultCard(
+                                  color: _.isChangeColor8
+                                      ? Colors.red
+                                      : colorConst,
+                                  labelText: 'Ate R\$ 5.00',
+                                  textColor: Colors.white,
+                                ),
+                              ),
+                              onTap: _.toggleChangeColor8,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Obx(
+                        () => Column(
+                          children: [
+                            GestureDetector(
+                              child: Container(
+                                width: 110,
+                                child: DefaultCard(
+                                  color: _.isChangeColor9
+                                      ? Colors.red
+                                      : colorConst,
+                                  labelText: 'Ate R\$10.00',
+                                  textColor: Colors.white,
+                                ),
+                              ),
+                              onTap: _.toggleChangeColor9,
                             ),
                           ],
                         ),
                       ),
                     ],
-                  );
-                },
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: GFButton(
-                  onPressed: () {
-                    Get.toNamed('/result_filter');
-                  },
-                  text: "Procurar",
-                  color: Color(0xFF007838),
-                  size: GFSize.MEDIUM,
-                  fullWidthButton: true,
-                ),
-              ),
-            ],
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Filtros Especiais:',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: colorConst,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Row(
+                    children: [
+                      Obx(
+                        () => Checkbox(
+                          value: _.isValue1,
+                          onChanged: (bool value) {
+                            _.toggleValue1();
+                          },
+                        ),
+                      ),
+                      Text(
+                        'Melhores Estabelecimentos',
+                        style: TextStyle(
+                          color: colorConst,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Obx(
+                        () => Checkbox(
+                          value: _.isValue2,
+                          onChanged: (value) {
+                            _.toggleValue2();
+                          },
+                        ),
+                      ),
+                      Text(
+                        'Entrega tendytudo',
+                        style: TextStyle(
+                          color: colorConst,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Obx(
+                        () => Checkbox(
+                          value: _.isValue3,
+                          onChanged: (value) {
+                            _.toggleValue3();
+                          },
+                        ),
+                      ),
+                      Text(
+                        'Entrega rastreavel',
+                        style: TextStyle(
+                          color: colorConst,
+                        ),
+                      ),
+                    ],
+                  ),
+                  RaisedButton(
+                    color: colorConst,
+                    onPressed: () {},
+                    child: Text(
+                      'Aceita Agendamento',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),
