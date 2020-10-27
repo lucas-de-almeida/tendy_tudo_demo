@@ -2,12 +2,12 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-class HomePage extends StatefulWidget {
+class OffersPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _OffersPageState createState() => _OffersPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _OffersPageState extends State<OffersPage> {
   int _page = 0;
   GlobalKey _bottomNavigationKey = GlobalKey();
   @override
@@ -15,33 +15,6 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Color(0xFF007838),
-      appBar: AppBar(
-        backgroundColor: Color(0xFF007838),
-      ),
-      bottomNavigationBar: CurvedNavigationBar(
-        key: _bottomNavigationKey,
-        index: 0,
-        height: 50.0,
-        items: <Widget>[
-          Icon(Icons.home, size: 30),
-          Icon(Icons.favorite_border, size: 30),
-          Icon(Icons.person_outline, size: 30),
-          Icon(Icons.search, size: 30),
-          Icon(Icons.more_vert, size: 30),
-        ],
-        color: Colors.white,
-        buttonBackgroundColor: Colors.white,
-        backgroundColor: Color(0xFF007838),
-        animationCurve: Curves.easeInOut,
-        animationDuration: Duration(milliseconds: 600),
-        onTap: (index) {
-          setState(() {
-            _page = index;
-          });
-        },
-      ),
-
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -120,6 +93,48 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 20.0),
+            Container(
+              height: 340,
+              color: Color(0xFF007838),
+              padding: EdgeInsets.all(16.0),
+              child: Swiper(
+                fade: 0.0,
+                itemBuilder: (BuildContext context, int index) {
+                  return Column(
+                    children: <Widget>[
+                      Container(
+                        height: 200,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10.0),
+                                topRight: Radius.circular(10.0)),
+                            color: Colors.blueGrey,
+                            image: DecorationImage(
+                                image: AssetImage(
+                                  'assets/shop.png',
+                                ),
+                                fit: BoxFit.cover)),
+                      ),
+                      Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10.0),
+                                  bottomRight: Radius.circular(10.0))),
+                          child: ListTile(
+                            subtitle: Text("Promoção Relampago"),
+                            title: Text("Super Mercado X"),
+                          ))
+                    ],
+                  );
+                },
+                itemCount: 10,
+                scale: 0.9,
+                pagination: SwiperPagination(),
+              ),
+            ),
+            SizedBox(height: 20),
             Container(
               height: 340,
               color: Color(0xFF007838),
