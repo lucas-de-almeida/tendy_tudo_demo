@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tendytudo_demo/pages/filters/filter_page.dart';
+
 import 'package:tendytudo_demo/pages/home/home_page.dart';
 import 'package:tendytudo_demo/pages/profile/profile.dart';
 import 'package:tendytudo_demo/pages/results_filter/result_filter.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/filter',
+      initialRoute: '/',
       getPages: [
         GetPage(
           name: '/',

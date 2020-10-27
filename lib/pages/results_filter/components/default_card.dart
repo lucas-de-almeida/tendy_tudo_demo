@@ -2,18 +2,30 @@ import 'package:flutter/material.dart';
 
 class DefaultCard extends StatelessWidget {
   final String labelText;
+  final Color color;
+  final double fontSize;
+  final Color textColor;
 
-  const DefaultCard({Key key, this.labelText}) : super(key: key);
+  const DefaultCard(
+      {Key key, this.labelText, this.color, this.fontSize, this.textColor})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: color,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: 8,
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
           children: [
-            Text(labelText),
+            Text(
+              labelText,
+              style: TextStyle(
+                fontSize: fontSize,
+                color: textColor,
+              ),
+            ),
           ],
         ),
       ),
