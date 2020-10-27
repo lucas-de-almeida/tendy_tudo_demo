@@ -1,0 +1,4 @@
+#Tue Oct 27 19:23:19 BRT 2020
+base.0=/media/lucas/hd arquivos linux/flutter/3lsoftwares/tendytudo_demo/tendytudo_demo/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
