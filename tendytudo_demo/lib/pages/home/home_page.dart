@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: _CategoryWidget(
                         iconData: Icons.shopping_cart,
-                        actionText: "Grocery",
+                        actionText: "Mercados",
                         isSelected: _grocery,
                       ),
                     ),
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: _CategoryWidget(
                         iconData: Icons.card_giftcard,
-                        actionText: "Cloth",
+                        actionText: "Roupas",
                         isSelected: _cloth,
                       ),
                     ),
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: _CategoryWidget(
                         iconData: Icons.wine_bar,
-                        actionText: "Liquor",
+                        actionText: "Bebidas",
                         isSelected: _liquor,
                       ),
                     ),
@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                       child: _CategoryWidget(
                           iconData: Icons.fastfood,
                           isSelected: _food,
-                          actionText: "Food"),
+                          actionText: "Restaurantes"),
                     ),
                   ),
                 ],
