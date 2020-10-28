@@ -1,7 +1,9 @@
 import 'package:bmnav/bmnav.dart' as bmnav;
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:tendytudo_demo/pages/filters/filter_page.dart';
 import 'package:tendytudo_demo/pages/home/OffersPage.dart';
+import 'package:tendytudo_demo/pages/profile/profile.dart';
 
 // This class uses bmnav Package
 // Link to it :  https://pub.dev/packages/bmnav
@@ -17,8 +19,8 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> pages = [
     OffersPage(),
     ProfileScreen(),
-    NotificationsScreen(),
-    MoreScreen(),
+    ProfilePage(),
+    FiltersPage(),
     OffersPage()
   ];
   Widget currentScreen = OffersPage();
@@ -27,34 +29,36 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext ctx) {
-    return Scaffold(
-      appBar: AppBar(
+    return SafeArea(
+      child: Scaffold(
+        /* appBar: AppBar(
+          backgroundColor: Color(0xFF007838),
+        ), */
         backgroundColor: Color(0xFF007838),
-      ),
-      backgroundColor: Colors.white,
-      body: PageStorage(child: currentScreen, bucket: bucket),
-      bottomNavigationBar: CurvedNavigationBar(
-        index: currentTab,
-        //if you don't show text tab in bar set to false
-        height: 50.0,
-        onTap: (i) {
-          setState(() {
-            currentTab = i;
-            currentScreen = pages[i];
-          });
-        },
-        items: [
-          Icon(Icons.home, size: 30),
-          Icon(Icons.favorite_border, size: 30),
-          Icon(Icons.person_outline, size: 30),
-          Icon(Icons.search, size: 30),
-          Icon(Icons.more_vert, size: 30),
-        ],
-        color: Colors.white,
-        buttonBackgroundColor: Colors.white,
-        backgroundColor: Color(0xFF007838),
-        animationCurve: Curves.easeInOut,
-        animationDuration: Duration(milliseconds: 600),
+        body: PageStorage(child: currentScreen, bucket: bucket),
+        bottomNavigationBar: CurvedNavigationBar(
+          index: currentTab,
+          //if you don't show text tab in bar set to false
+          height: 50.0,
+          onTap: (i) {
+            setState(() {
+              currentTab = i;
+              currentScreen = pages[i];
+            });
+          },
+          items: [
+            Icon(Icons.home, size: 30),
+            Icon(Icons.favorite_border, size: 30),
+            Icon(Icons.person_outline, size: 30),
+            Icon(Icons.search, size: 30),
+            Icon(Icons.more_vert, size: 30),
+          ],
+          color: Colors.white,
+          buttonBackgroundColor: Colors.white,
+          backgroundColor: Color(0xFF007838),
+          animationCurve: Curves.easeInOut,
+          animationDuration: Duration(milliseconds: 600),
+        ),
       ),
     );
   }

@@ -93,7 +93,7 @@ class _OffersPageState extends State<OffersPage> {
               ),
             ),
             SizedBox(height: 20.0),
-            Container(
+/*             Container(
               height: 340,
               color: Color(0xFF007838),
               padding: EdgeInsets.all(16.0),
@@ -134,7 +134,7 @@ class _OffersPageState extends State<OffersPage> {
                 pagination: SwiperPagination(),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20), */
             Container(
               height: 340,
               color: Color(0xFF007838),
