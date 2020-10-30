@@ -76,7 +76,7 @@ class ProfilePage extends StatelessWidget {
                       leading: Icon(Icons.build),
                       title: Text('Outras informações'),
                       subtitle: Text(
-                        'Rua teste, 76 Bairro: teste, Cidade: teste, Complemento: Teste',
+                        'Rua teste, 76 Bairro: teste, Cidade: teste,',
                         softWrap: true,
                       ),
                     ),
