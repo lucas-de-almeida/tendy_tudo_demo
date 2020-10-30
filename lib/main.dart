@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tendytudo_demo/pages/filters/filter_page.dart';
-import 'package:tendytudo_demo/pages/home/HomePage.dart';
-
+import 'package:tendytudo_demo/pages/home/home_page.dart';
 import 'package:tendytudo_demo/pages/profile/profile.dart';
 import 'package:tendytudo_demo/pages/results_filter/result_filter.dart';
 
@@ -20,10 +18,6 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/',
           page: () => HomePage(),
-        ),
-        GetPage(
-          name: '/filter',
-          page: () => FiltersPage(),
         ),
         GetPage(
           name: '/profile',

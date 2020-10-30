@@ -1,24 +1,27 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-class OffersPage extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _OffersPageState createState() => _OffersPageState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
-class _OffersPageState extends State<OffersPage> {
-  int _page = 0;
+class HomeScreenState extends State<HomeScreen> {
+  /*
+   int _page = 0;
   GlobalKey _bottomNavigationKey = GlobalKey();
   @override
   bool _grocery = false, _cloth = true, _liquor = false, _food = true;
+  */
+  @override
+  Widget build(BuildContext ctx) {
+    return
 
-  Widget build(BuildContext context) {
-    return Scaffold(
+        /*Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Container(
+                 Container(
               margin: EdgeInsets.only(top: 8),
               decoration: BoxDecoration(
                 border: Border.all(width: 0.5, color: Colors.black),
@@ -91,98 +94,56 @@ class _OffersPageState extends State<OffersPage> {
                   ),
                 ],
               ),
-            ),
-            SizedBox(height: 20.0),
-/*             Container(
-              height: 340,
-              color: Color(0xFF007838),
-              padding: EdgeInsets.all(16.0),
-              child: Swiper(
-                fade: 0.0,
-                itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    children: <Widget>[
-                      Container(
-                        height: 200,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10.0),
-                                topRight: Radius.circular(10.0)),
-                            color: Colors.blueGrey,
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  'assets/shop.png',
-                                ),
-                                fit: BoxFit.cover)),
-                      ),
-                      Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10.0),
-                                  bottomRight: Radius.circular(10.0))),
-                          child: ListTile(
-                            subtitle: Text("Promoção Relampago"),
-                            title: Text("Super Mercado X"),
-                          ))
-                    ],
-                  );
-                },
-                itemCount: 10,
-                scale: 0.9,
-                pagination: SwiperPagination(),
-              ),
-            ),
-            SizedBox(height: 20), */
-            Container(
-              height: 340,
-              color: Color(0xFF007838),
-              padding: EdgeInsets.all(16.0),
-              child: Swiper(
-                fade: 0.0,
-                itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    children: <Widget>[
-                      Container(
-                        height: 200,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10.0),
-                                topRight: Radius.circular(10.0)),
-                            color: Colors.blueGrey,
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  'assets/shop.png',
-                                ),
-                                fit: BoxFit.cover)),
-                      ),
-                      Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10.0),
-                                  bottomRight: Radius.circular(10.0))),
-                          child: ListTile(
-                            subtitle: Text("Promoção Relampago"),
-                            title: Text("Super Mercado X"),
-                          ))
-                    ],
-                  );
-                },
-                itemCount: 10,
-                scale: 0.9,
-                pagination: SwiperPagination(),
-              ),
-            ),
-          ],
+            ), */
+
+        SingleChildScrollView(
+      child: Container(
+        height: 438, //altura padrao
+        color: Color(0xFF007838),
+        padding: EdgeInsets.all(16.0),
+        child: Swiper(
+          fade: 0.0,
+          itemBuilder: (BuildContext context, int index) {
+            return Column(
+              children: <Widget>[
+                Container(
+                  height: 300,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10.0),
+                          topRight: Radius.circular(10.0)),
+                      color: Colors.blueGrey,
+                      image: DecorationImage(
+                          image: AssetImage(
+                            'assets/shop.png',
+                          ),
+                          fit: BoxFit.cover)),
+                ),
+                Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(10.0),
+                            bottomRight: Radius.circular(10.0))),
+                    child: ListTile(
+                      subtitle: Text("Promoção Relampago"),
+                      title: Text("Super Mercado X"),
+                    ))
+              ],
+            );
+          },
+          itemCount: 10,
+          scale: 0.9,
+          pagination: SwiperPagination(),
         ),
       ),
     );
   }
 }
 
+/**
+ * 
 class _CategoryWidget extends StatelessWidget {
   final IconData iconData;
   final String actionText;
@@ -230,3 +191,5 @@ class _CategoryWidget extends StatelessWidget {
     );
   }
 }
+
+ */
