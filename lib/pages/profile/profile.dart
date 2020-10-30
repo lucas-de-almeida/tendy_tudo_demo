@@ -22,8 +22,8 @@ class ProfilePage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      width: 140.0,
-                      height: 140.0,
+                      width: 100.0,
+                      height: 100.0,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(
@@ -61,6 +61,24 @@ class ProfilePage extends StatelessWidget {
                     Divider(
                       color: Colors.grey,
                       thickness: 5,
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.build),
+                      title: Text('Outras informações'),
+                      subtitle: Text('usuario teste'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.build),
+                      title: Text('Outras informações'),
+                      subtitle: Text('exemplo@exemplo.com.br'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.build),
+                      title: Text('Outras informações'),
+                      subtitle: Text(
+                        'Rua teste, 76 Bairro: teste, Cidade: teste, Complemento: Teste',
+                        softWrap: true,
+                      ),
                     ),
                   ],
                 ),
