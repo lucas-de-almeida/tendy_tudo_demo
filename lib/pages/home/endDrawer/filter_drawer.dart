@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tendytudo_demo/components/default_card.dart';
 import 'package:tendytudo_demo/pages/home/endDrawer/controllers/filter_controller.dart';
-import 'package:tendytudo_demo/pages/results_filter/components/default_card.dart';
 
 class FiltersDrawer extends StatefulWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;

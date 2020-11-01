@@ -2,12 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:tendytudo_demo/pages/settings/settings_page.dart';
 
-class NotificationsScreen extends StatefulWidget {
+class SettingsScreen extends StatefulWidget {
   @override
-  _NotificationsScreenState createState() => _NotificationsScreenState();
+  _SettingsScreenState createState() => _SettingsScreenState();
 }
 
-class _NotificationsScreenState extends State<NotificationsScreen> {
+class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext ctx) {
     return Container(

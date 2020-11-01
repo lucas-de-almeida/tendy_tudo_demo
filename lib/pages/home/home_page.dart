@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:tendytudo_demo/pages/home/endDrawer/filter_drawer.dart';
+import 'package:tendytudo_demo/pages/home/screens/favorite_screen.dart';
 import 'package:tendytudo_demo/pages/home/screens/filters_screen.dart';
 import 'package:tendytudo_demo/pages/home/screens/home_screen.dart';
-import 'package:tendytudo_demo/pages/home/screens/notification_screen.dart';
+import 'package:tendytudo_demo/pages/home/screens/Settings_screen.dart';
 import 'package:tendytudo_demo/pages/home/screens/profile_screen.dart';
-import 'package:tendytudo_demo/pages/profile/profile.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/MainBotttomNaviWidget';
@@ -19,10 +19,10 @@ class _HomePageState extends State<HomePage> {
   int currentTab = 0;
   final List<Widget> pages = [
     HomeScreen(),
-    NotificationsScreen(),
+    FavoriteScreen(),
     ProfileScreen(),
     FilterScreen(),
-    NotificationsScreen(),
+    SettingsScreen(),
     HomeScreen(),
   ];
   Widget currentScreen = HomeScreen();
