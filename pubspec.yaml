@@ -31,6 +31,7 @@ dependencies:
   curved_navigation_bar: ^0.3.4
   #icones eestilizados
   material_design_icons_flutter: ^4.0.5755
+  font_awesome_flutter: ^8.10.0
   #trab bar luis
   bmnav: ^0.3.4
   #bloco get
