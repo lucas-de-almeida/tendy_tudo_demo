@@ -45,7 +45,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                   Row(
                     children: [
                       SizedBox(
-                        width: 20,
+                        width: 15,
                       ),
                       Obx(
                         () => Column(
@@ -173,9 +173,6 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
 
                   Row(
                     children: [
-                      SizedBox(
-                        width: 10,
-                      ),
                       Obx(
                         () => Column(
                           children: [
