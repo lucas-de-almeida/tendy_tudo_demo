@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:tendytudo_demo/utils/app_constant.dart';
 
 class FavoritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            defaultFavorites(0),
-            Divider(
-              thickness: 5,
-              color: Colors.black12,
+    return GetBuilder(
+      builder: (_) => Scaffold(
+        body: SingleChildScrollView(
+          child: Obx(
+            () => Column(
+              children: [
+                defaultFavorites(
+                  0,
+                ),
+                Divider(
+                  thickness: 5,
+                  color: Colors.black12,
+                ),
+                defaultFavorites(
+                  1,
+                ),
+              ],
             ),
-            defaultFavorites(1),
-          ],
+          ),
         ),
       ),
     );
@@ -24,6 +34,7 @@ class FavoritePage extends StatelessWidget {
     String place1 = 'The Crêperie';
     String place2 = 'Es Mauvais Garçon';
     String image = "assets/fachada$index.jpg";
+
     return Stack(
       children: <Widget>[
         Container(
@@ -89,7 +100,21 @@ class FavoritePage extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Row(
+                              SmoothStarRating(
+                                allowHalfRating: true,
+                                onRated: (v) {},
+                                starCount: 5,
+                                rating: 4,
+                                size: 24.0,
+                                isReadOnly: true,
+                                filledIconData: Icons.star,
+                                halfFilledIconData: Icons.star_half,
+                                defaultIconData: Icons.star_border,
+                                color: ColorThemeApp,
+                                borderColor: ColorThemeApp,
+                                spacing: 0.0,
+                              ),
+                              /* Row(
                                 children: <Widget>[
                                   Icon(
                                     Icons.star,
@@ -112,7 +137,7 @@ class FavoritePage extends StatelessWidget {
                                     color: ColorThemeApp,
                                   ),
                                 ],
-                              ),
+                              ), */
                               Text.rich(
                                 TextSpan(children: [
                                   WidgetSpan(
