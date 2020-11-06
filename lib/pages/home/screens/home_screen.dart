@@ -101,7 +101,7 @@ class HomeScreenState extends State<HomeScreen> {
       child: Container(
         height: 438, //altura padrao
         color: Color(0xFF007838),
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
         child: Swiper(
           fade: 0.0,
           itemBuilder: (BuildContext context, int index) {

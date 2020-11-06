@@ -9,21 +9,19 @@ class FavoritePage extends StatelessWidget {
     return GetBuilder(
       builder: (_) => Scaffold(
         body: SingleChildScrollView(
-          child: Obx(
-            () => Column(
-              children: [
-                defaultFavorites(
-                  0,
-                ),
-                Divider(
-                  thickness: 5,
-                  color: Colors.black12,
-                ),
-                defaultFavorites(
-                  1,
-                ),
-              ],
-            ),
+          child: Column(
+            children: [
+              defaultFavorites(
+                0,
+              ),
+              Divider(
+                thickness: 5,
+                color: Colors.black12,
+              ),
+              defaultFavorites(
+                1,
+              ),
+            ],
           ),
         ),
       ),
