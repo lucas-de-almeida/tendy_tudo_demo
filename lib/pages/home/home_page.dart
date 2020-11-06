@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                         letterSpacing: 0,
                       ),
                       decoration: InputDecoration(
-                        hintText: "Search",
+                        hintText: "Buscar",
                         hintStyle: TextStyle(
                           color: Color(0xFF007838),
                           fontWeight: FontWeight.w500,

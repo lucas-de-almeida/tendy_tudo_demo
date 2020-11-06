@@ -7,6 +7,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  List<String> companyNameList = [
+    'The Crêperie',
+    'Es Mauvais Garçon',
+    'Hermes',
+    'Coffee Philosophy',
+    'Nordweg',
+    'The Temple Bar',
+    'Wines Liquor',
+    'Street Market',
+    'Station & Emotion',
+    'Dagostino',
+  ];
   /*
    int _page = 0;
   GlobalKey _bottomNavigationKey = GlobalKey();
@@ -116,7 +128,7 @@ class HomeScreenState extends State<HomeScreen> {
                       color: Colors.blueGrey,
                       image: DecorationImage(
                           image: AssetImage(
-                            'assets/shop.png',
+                            'assets/fachada$index.jpg',
                           ),
                           fit: BoxFit.cover)),
                 ),
@@ -128,7 +140,7 @@ class HomeScreenState extends State<HomeScreen> {
                             bottomRight: Radius.circular(10.0))),
                     child: ListTile(
                       subtitle: Text("Promoção Relampago"),
-                      title: Text("Super Mercado X"),
+                      title: Text(companyNameList[index]),
                     ))
               ],
             );
@@ -136,6 +148,8 @@ class HomeScreenState extends State<HomeScreen> {
           itemCount: 10,
           scale: 0.9,
           pagination: SwiperPagination(),
+          autoplay: true,
+          autoplayDelay: 10000,
         ),
       ),
     );

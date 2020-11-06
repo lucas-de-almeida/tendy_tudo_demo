@@ -2,26 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:tendytudo_demo/utils/app_constant.dart';
 
 class FavoritePage extends StatelessWidget {
-  final String image = "assets/shop.png";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            defaultFavorites(),
+            defaultFavorites(0),
             Divider(
               thickness: 5,
               color: Colors.black12,
             ),
-            defaultFavorites(),
+            defaultFavorites(1),
           ],
         ),
       ),
     );
   }
 
-  Widget defaultFavorites() {
+  Widget defaultFavorites(int index) {
+    String place1 = 'The Crêperie';
+    String place2 = 'Es Mauvais Garçon';
+    String image = "assets/fachada$index.jpg";
     return Stack(
       children: <Widget>[
         Container(
@@ -37,7 +39,7 @@ class FavoritePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
-                  "Mini mercado da Esquina",
+                  '${index == 0 ? place1 : place2}',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 28.0,
