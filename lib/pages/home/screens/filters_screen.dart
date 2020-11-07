@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:tendytudo_demo/pages/home/components/menu_tile_default.dart';
 
 class FilterScreen extends StatelessWidget {
   @override
@@ -47,7 +46,7 @@ class OpcaoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
+    final TextStyle textStyle = Theme.of(context).textTheme.headline4;
     return Card(
         color: Colors.white,
         child: Center(

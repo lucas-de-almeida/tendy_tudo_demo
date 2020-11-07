@@ -45,7 +45,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                   Row(
                     children: [
                       SizedBox(
-                        width: 20,
+                        width: 15,
                       ),
                       Obx(
                         () => Column(
@@ -152,7 +152,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                'Tempo Entrega',
+                                'Tempo de Entrega',
                                 softWrap: true,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -173,9 +173,6 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
 
                   Row(
                     children: [
-                      SizedBox(
-                        width: 10,
-                      ),
                       Obx(
                         () => Column(
                           children: [
@@ -202,7 +199,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                'Taxas entrega',
+                                'Taxas de Entrega',
                                 softWrap: true,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -243,7 +240,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                'Distancia',
+                                'Distância',
                                 softWrap: true,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -263,7 +260,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                     height: 40,
                   ),
                   Text(
-                    'Distancia maxima de 30 km',
+                    'Distância Máxima de ${_value.round()} km',
                     style: TextStyle(
                       color: colorConst,
                     ),
@@ -273,7 +270,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                     child: Row(
                       children: [
                         Text(
-                          '0',
+                          '0 Km',
                           style: TextStyle(
                             color: colorConst,
                           ),
@@ -296,7 +293,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                           ),
                         ),
                         Text(
-                          '30',
+                          '30 Km',
                           style: TextStyle(
                             color: colorConst,
                           ),
@@ -334,7 +331,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                                     color: _.isChangeColor7
                                         ? Colors.red
                                         : colorConst,
-                                    labelText: 'Gratis',
+                                    labelText: 'Grátis',
                                     textColor: Colors.white,
                                   ),
                                 ),
@@ -353,7 +350,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                                     color: _.isChangeColor8
                                         ? Colors.red
                                         : colorConst,
-                                    labelText: 'Ate R\$ 5.00',
+                                    labelText: 'Até R\$ 5.00',
                                     textColor: Colors.white,
                                   ),
                                 ),
@@ -379,7 +376,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                                     color: _.isChangeColor9
                                         ? Colors.red
                                         : colorConst,
-                                    labelText: 'Ate R\$10.00',
+                                    labelText: 'Até R\$10.00',
                                     textColor: Colors.white,
                                   ),
                                 ),
@@ -437,7 +434,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                         ),
                       ),
                       Text(
-                        'Entrega tendytudo',
+                        'Entrega Tendytudo',
                         style: TextStyle(
                           color: colorConst,
                         ),
@@ -455,7 +452,7 @@ class _FiltersDrawerState extends State<FiltersDrawer> {
                         ),
                       ),
                       Text(
-                        'Entrega rastreavel',
+                        'Entrega rastreável',
                         style: TextStyle(
                           color: colorConst,
                         ),

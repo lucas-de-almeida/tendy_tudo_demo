@@ -1,27 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:tendytudo_demo/utils/app_constant.dart';
 
 class FavoritePage extends StatelessWidget {
-  final String image = "assets/shop.png";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            defaultFavorites(),
-            Divider(
-              thickness: 5,
-              color: Colors.black12,
-            ),
-            defaultFavorites(),
-          ],
+    return GetBuilder(
+      builder: (_) => Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              defaultFavorites(
+                0,
+              ),
+              Divider(
+                thickness: 5,
+                color: Colors.black12,
+              ),
+              defaultFavorites(
+                1,
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget defaultFavorites() {
+  Widget defaultFavorites(int index) {
+    String place1 = 'The Crêperie';
+    String place2 = 'Es Mauvais Garçon';
+    String image = "assets/fachada$index.jpg";
+
     return Stack(
       children: <Widget>[
         Container(
@@ -37,7 +48,7 @@ class FavoritePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
-                  "Mini mercado da Esquina",
+                  '${index == 0 ? place1 : place2}',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 28.0,
@@ -87,7 +98,21 @@ class FavoritePage extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Row(
+                              SmoothStarRating(
+                                allowHalfRating: true,
+                                onRated: (v) {},
+                                starCount: 5,
+                                rating: 4,
+                                size: 24.0,
+                                isReadOnly: true,
+                                filledIconData: Icons.star,
+                                halfFilledIconData: Icons.star_half,
+                                defaultIconData: Icons.star_border,
+                                color: ColorThemeApp,
+                                borderColor: ColorThemeApp,
+                                spacing: 0.0,
+                              ),
+                              /* Row(
                                 children: <Widget>[
                                   Icon(
                                     Icons.star,
@@ -110,7 +135,7 @@ class FavoritePage extends StatelessWidget {
                                     color: ColorThemeApp,
                                   ),
                                 ],
-                              ),
+                              ), */
                               Text.rich(
                                 TextSpan(children: [
                                   WidgetSpan(

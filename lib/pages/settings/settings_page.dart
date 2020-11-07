@@ -52,7 +52,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           Icons.lock_outline,
                           color: ColorThemeApp,
                         ),
-                        title: Text("Mude o Password"),
+                        title: Text("Alterar senha"),
                         trailing: Icon(Icons.keyboard_arrow_right),
                         onTap: () {
                           //open change password
