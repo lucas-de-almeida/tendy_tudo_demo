@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -159,6 +160,13 @@ class _SettingsPageState extends State<SettingsPage> {
                     Get.defaultDialog(
                       title: '',
                       content: Text("Você estara saindo da Aplicação!"),
+                      confirm: FlatButton(
+                        onPressed: () {
+                          SystemChannels.platform
+                              .invokeMethod('SystemNavigator.pop');
+                        },
+                        child: Text('sim'),
+                      ),
                     );
                   },
                 ),
