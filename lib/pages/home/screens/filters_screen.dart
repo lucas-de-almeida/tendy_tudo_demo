@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:tendytudo_demo/utils/app_constant.dart';
 
 class FilterScreen extends StatelessWidget {
   @override
@@ -7,7 +8,8 @@ class FilterScreen extends StatelessWidget {
     return Container(
         height: 500,
         child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(
+                top: 40.0, left: 20.0, right: 20.0, bottom: 20.0),
             child: GridView.count(
                 crossAxisCount: 2,
                 children: List.generate(opcoes.length, (index) {

@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:tendytudo_demo/utils/app_constant.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorThemeApp,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text(
+          'Perfil',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
       body: Container(
         alignment: Alignment.center,
         color: Color(0xFF007838),

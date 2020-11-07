@@ -17,6 +17,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int currentTab = 0;
+  bool enable = false;
   final List<Widget> pages = [
     HomeScreen(),
     FavoriteScreen(),
@@ -45,101 +46,102 @@ class _HomePageState extends State<HomePage> {
           body: ListView(
             padding: EdgeInsets.all(0),
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(16),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: TextFormField(
-                        style: TextStyle(
-                          color: Color(0xFF007838),
-                          fontWeight: FontWeight.w500,
-                          letterSpacing: 0,
-                        ),
-                        decoration: InputDecoration(
-                          hintText: "Buscar",
-                          hintStyle: TextStyle(
-                            color: Color(0xFF007838),
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: 0,
+              enable
+                  ? Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: TextFormField(
+                              style: TextStyle(
+                                color: Color(0xFF007838),
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 0,
+                              ),
+                              decoration: InputDecoration(
+                                hintText: "Buscar",
+                                hintStyle: TextStyle(
+                                  color: Color(0xFF007838),
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0,
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(16),
+                                    ),
+                                    borderSide: BorderSide.none),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(16),
+                                    ),
+                                    borderSide: BorderSide.none),
+                                filled: true,
+                                fillColor: Colors.white,
+                                prefixIcon: Icon(
+                                  MdiIcons.magnify,
+                                  size: 22,
+                                ),
+                                isDense: true,
+                                contentPadding: EdgeInsets.only(right: 16),
+                              ),
+                              //textCapitalization: TextCapitalization.sentences,
+                            ),
                           ),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(16),
+                          InkWell(
+                            onTap: () {
+                              //fazer a ordenaçao
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(left: 16),
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.white,
+                                    offset: Offset(0, 1),
+                                  )
+                                ],
                               ),
-                              borderSide: BorderSide.none),
-                          enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(16),
+                              padding: EdgeInsets.all(12),
+                              child: Icon(
+                                MdiIcons.swapVertical,
+                                size: 22,
+                                color: Color(0xFF007838),
                               ),
-                              borderSide: BorderSide.none),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(16),
-                              ),
-                              borderSide: BorderSide.none),
-                          filled: true,
-                          fillColor: Colors.white,
-                          prefixIcon: Icon(
-                            MdiIcons.magnify,
-                            size: 22,
+                            ),
                           ),
-                          isDense: true,
-                          contentPadding: EdgeInsets.only(right: 16),
-                        ),
-                        textCapitalization: TextCapitalization.sentences,
+                          InkWell(
+                            onTap: () {
+                              print('tap do drawer');
+                              _scaffoldKey.currentState.openEndDrawer();
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(left: 10),
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16)),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.white,
+                                    offset: Offset(0, 1),
+                                  )
+                                ],
+                              ),
+                              padding: EdgeInsets.all(12),
+                              child: Icon(
+                                MdiIcons.tune,
+                                color: Color(0xFF007838),
+                                size: 22,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
+                    )
+                  : Container(
+                      color: Colors.white,
                     ),
-                    InkWell(
-                      onTap: () {
-                        //fazer a ordenaçao
-                      },
-                      child: Container(
-                        margin: EdgeInsets.only(left: 16),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(16)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.white,
-                              offset: Offset(0, 1),
-                            )
-                          ],
-                        ),
-                        padding: EdgeInsets.all(12),
-                        child: Icon(
-                          MdiIcons.swapVertical,
-                          size: 22,
-                          color: Color(0xFF007838),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        print('tap do drawer');
-                        _scaffoldKey.currentState.openEndDrawer();
-                      },
-                      child: Container(
-                        margin: EdgeInsets.only(left: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(16)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.white,
-                              offset: Offset(0, 1),
-                            )
-                          ],
-                        ),
-                        padding: EdgeInsets.all(12),
-                        child: Icon(
-                          MdiIcons.tune,
-                          color: Color(0xFF007838),
-                          size: 22,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
               PageStorage(child: currentScreen, bucket: bucket),
             ],
           ),
@@ -151,7 +153,14 @@ class _HomePageState extends State<HomePage> {
               setState(() {
                 currentTab = i;
                 currentScreen = pages[i];
+
+                print(currentTab);
               });
+              if (currentTab == 0) {
+                enable = true;
+              } else {
+                enable = false;
+              }
             },
             items: [
               Icon(Icons.home, size: 30),

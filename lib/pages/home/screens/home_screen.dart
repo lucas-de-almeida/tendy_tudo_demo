@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -8,96 +7,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
-  /*
-   int _page = 0;
-  GlobalKey _bottomNavigationKey = GlobalKey();
-  @override
-  bool _grocery = false, _cloth = true, _liquor = false, _food = true;
-  */
   @override
   Widget build(BuildContext ctx) {
-    return
-
-        /*Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-                 Container(
-              margin: EdgeInsets.only(top: 8),
-              decoration: BoxDecoration(
-                border: Border.all(width: 0.5, color: Colors.black),
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(8)),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black,
-                    blurRadius: 4,
-                    offset: Offset(0, 1),
-                  ),
-                ],
-              ),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          _grocery = !_grocery;
-                        });
-                      },
-                      child: _CategoryWidget(
-                        iconData: Icons.shopping_cart,
-                        actionText: "Mercados",
-                        isSelected: _grocery,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          _cloth = !_cloth;
-                        });
-                      },
-                      child: _CategoryWidget(
-                        iconData: Icons.card_giftcard,
-                        actionText: "Roupas",
-                        isSelected: _cloth,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          _liquor = !_liquor;
-                        });
-                      },
-                      child: _CategoryWidget(
-                        iconData: Icons.wine_bar,
-                        actionText: "Bebidas",
-                        isSelected: _liquor,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          _food = !_food;
-                        });
-                      },
-                      child: _CategoryWidget(
-                          iconData: Icons.fastfood,
-                          isSelected: _food,
-                          actionText: "Restaurantes"),
-                    ),
-                  ),
-                ],
-              ),
-            ), */
-
-        SingleChildScrollView(
+    return SingleChildScrollView(
       child: Container(
         height: 438, //altura padrao
         color: Color(0xFF007838),

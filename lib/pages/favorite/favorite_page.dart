@@ -8,6 +8,15 @@ class FavoritePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder(
       builder: (_) => Scaffold(
+        backgroundColor: ColorThemeApp,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text(
+            'Favoritos',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
