@@ -56,8 +56,8 @@ dev_dependencies:
 flutter_icons:
   ios: true
   android: true
-  image_path_ios: "assets/ic_launcher.png"
-  image_path_android: "assets/ic_launcher.png"
+  image_path_ios: "assets/tentytudo_icon.png"
+  image_path_android: "assets/tentytudo_icon.png"
 
 # The following section is specific to Flutter.
 flutter:
