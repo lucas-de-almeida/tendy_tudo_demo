@@ -121,7 +121,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Get.toNamed('/home');
+                        Get.offAndToNamed('/home');
                       },
                     ),
                   ),
