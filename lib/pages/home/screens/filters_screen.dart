@@ -6,7 +6,7 @@ class FilterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 500,
+        height: MediaQuery.of(context).size.height - 140,
         child: Padding(
             padding: const EdgeInsets.only(
                 top: 40.0, left: 20.0, right: 20.0, bottom: 20.0),
@@ -57,7 +57,7 @@ class OpcaoCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Icon(opcao.icon, size: 50.0, color: textStyle.color),
-                Text(opcao.titulo, style: textStyle),
+                Text(opcao.titulo, style: TextStyle(fontSize: 20)),
               ]),
         ));
   }

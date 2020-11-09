@@ -10,7 +10,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext ctx) {
     return Container(
-      height: 438,
+      height: MediaQuery.of(context).size.height - 80,
       child: ProfilePage(),
     );
   }

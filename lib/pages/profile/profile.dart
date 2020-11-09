@@ -11,6 +11,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: Text(
           'Perfil',
+          textAlign: TextAlign.center,
           style: TextStyle(color: Colors.white),
         ),
       ),

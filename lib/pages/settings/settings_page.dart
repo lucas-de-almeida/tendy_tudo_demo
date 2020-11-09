@@ -12,6 +12,11 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  bool switch1 = false;
+  bool switch2 = false;
+  bool switch3 = false;
+  bool switch4 = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,50 +103,66 @@ class _SettingsPageState extends State<SettingsPage> {
                 SwitchListTile(
                   activeColor: Colors.purple,
                   contentPadding: const EdgeInsets.all(0),
-                  value: true,
+                  value: switch1,
                   title: Text(
                     "Receba notificações",
                     style: TextStyle(
                       color: Colors.white,
                     ),
                   ),
-                  onChanged: (val) {},
+                  onChanged: (val) {
+                    setState(() {
+                      switch1 = val;
+                    });
+                  },
                 ),
                 SwitchListTile(
-                  activeColor: Colors.white,
+                  activeColor: Colors.purple,
                   contentPadding: const EdgeInsets.all(0),
-                  value: false,
+                  value: switch2,
                   title: Text(
                     "Receba novidades no email",
                     style: TextStyle(
                       color: Colors.white,
                     ),
                   ),
-                  onChanged: null,
+                  onChanged: (val) {
+                    setState(() {
+                      switch2 = val;
+                    });
+                  },
                 ),
                 SwitchListTile(
-                  activeColor: Colors.white,
+                  activeColor: Colors.purple,
                   contentPadding: const EdgeInsets.all(0),
-                  value: true,
+                  value: switch3,
                   title: Text(
                     "Receba notificações de ofertas",
                     style: TextStyle(
                       color: Colors.white,
                     ),
                   ),
-                  onChanged: (val) {},
+                  onChanged: (val) {
+                    setState(() {
+                      switch3 = val;
+                    });
+                  },
                 ),
                 SwitchListTile(
-                  activeColor: Colors.white,
+                  activeColor: Colors.purple,
                   contentPadding: const EdgeInsets.all(0),
-                  value: true,
+                  value: switch4,
                   title: Text(
                     "Received App Updates",
                     style: TextStyle(
                       color: Colors.white,
                     ),
                   ),
-                  onChanged: null,
+                  onChanged: (val) {
+                    setState(() {
+                      switch4 = val;
+                    });
+                  },
                 ),
                 const SizedBox(height: 20.0),
                 ListTile(

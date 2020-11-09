@@ -9,13 +9,14 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext ctx) {
-    return SingleChildScrollView(
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: 438, //altura padrao
+        height: MediaQuery.of(context).size.height - 180, //altura padrao
         color: Color(0xFF007838),
-        padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
+
         child: Swiper(
-          fade: 0.0,
+          fade: 1.0,
           itemBuilder: (BuildContext context, int index) {
             return marketList[index];
           },
@@ -84,59 +85,62 @@ class MarketCard extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Container(
-            clipBehavior: Clip.antiAlias,
-            height: 300,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0),
-              ),
-              color: Colors.blueGrey,
-              image: DecorationImage(
-                image: AssetImage(
-                  'assets/loading.gif',
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+              clipBehavior: Clip.antiAlias,
+              height: 300,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10.0),
+                  topRight: Radius.circular(10.0),
                 ),
-                fit: BoxFit.cover,
+                color: Colors.blueGrey,
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/loading.gif',
+                  ),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            child: Image.asset(
-              'assets/fachada$index.jpg',
-              filterQuality: FilterQuality.low,
+              child: Image.asset(
+                'assets/fachada$index.jpg',
+                filterQuality: FilterQuality.low,
+                fit: BoxFit.fill,
+                frameBuilder: (BuildContext context, Widget child, int frame,
+                    bool wasSynchronouslyLoaded) {
+                  if (wasSynchronouslyLoaded) {
+                    return child;
+                  }
+                  return AnimatedOpacity(
+                    child: child,
+                    opacity: frame == null ? 0 : 1,
+                    duration: const Duration(seconds: 1),
+                    curve: Curves.easeOut,
+                  );
+                },
+              ) /* FadeInImage(
+              placeholder: AssetImage('assets/b6e0b072897469.5bf6e79950d23.gif'),
+              image: AssetImage('assets/fachada$index.jpg'),
               fit: BoxFit.fill,
-              frameBuilder: (BuildContext context, Widget child, int frame,
-                  bool wasSynchronouslyLoaded) {
-                if (wasSynchronouslyLoaded) {
-                  return child;
-                }
-                return AnimatedOpacity(
-                  child: child,
-                  opacity: frame == null ? 0 : 1,
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.easeOut,
-                );
-              },
-            ) /* FadeInImage(
-            placeholder: AssetImage('assets/b6e0b072897469.5bf6e79950d23.gif'),
-            image: AssetImage('assets/fachada$index.jpg'),
-            fit: BoxFit.fill,
-          ), */
+            ), */
+              ),
+          Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10.0),
+                    bottomRight: Radius.circular(10.0))),
+            child: ListTile(
+              subtitle: Text("Promoção Relampago"),
+              title: Text(companyNameList[index]),
             ),
-        Container(
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10.0),
-                  bottomRight: Radius.circular(10.0))),
-          child: ListTile(
-            subtitle: Text("Promoção Relampago"),
-            title: Text(companyNameList[index]),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

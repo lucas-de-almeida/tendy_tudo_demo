@@ -17,14 +17,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int currentTab = 0;
-  bool enable = false;
+  bool enable = true;
   final List<Widget> pages = [
     HomeScreen(),
     FavoriteScreen(),
     ProfileScreen(),
     FilterScreen(),
     SettingsScreen(),
-    HomeScreen(),
   ];
   Widget currentScreen = HomeScreen();
 
@@ -32,9 +31,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext ctx) {
-    return SafeArea(
-      child: WillPopScope(
-        onWillPop: () => Future.value(false),
+    return WillPopScope(
+      onWillPop: () => Future.value(false),
+      child: SafeArea(
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           resizeToAvoidBottomPadding: true,
@@ -153,14 +152,18 @@ class _HomePageState extends State<HomePage> {
               setState(() {
                 currentTab = i;
                 currentScreen = pages[i];
-
-                print(currentTab);
+                if (currentTab == 0) {
+                  enable = true;
+                } else if (currentTab == 1) {
+                  enable = true;
+                } else if (currentTab == 2) {
+                  enable = false;
+                } else if (currentTab == 3) {
+                  enable = true;
+                } else if (currentTab == 4) {
+                  enable = false;
+                }
               });
-              if (currentTab == 0) {
-                enable = true;
-              } else {
-                enable = false;
-              }
             },
             items: [
               Icon(Icons.home, size: 30),

@@ -11,7 +11,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext ctx) {
     return Container(
-      height: 438, //altura padrao
+      height: MediaQuery.of(context).size.height - 70, //altura padrao
 
       child: SettingsPage(),
     );
