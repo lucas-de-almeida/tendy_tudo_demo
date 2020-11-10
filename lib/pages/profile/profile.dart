@@ -42,7 +42,7 @@ class ProfilePage extends StatelessWidget {
                           color: Color(0xFF007838),
                         ),
                         image: DecorationImage(
-                          image: AssetImage('assets/user_default.png'),
+                          image: AssetImage('assets/pp.jpg'),
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -54,18 +54,18 @@ class ProfilePage extends StatelessWidget {
                     ListTile(
                       leading: Icon(Icons.person),
                       title: Text('NOME'),
-                      subtitle: Text('usuario teste'),
+                      subtitle: Text('Renato Machado'),
                     ),
                     ListTile(
                       leading: Icon(Icons.email),
                       title: Text('E-MAIL'),
-                      subtitle: Text('exemplo@exemplo.com.br'),
+                      subtitle: Text('grupowinnercallcenter@gmail.com'),
                     ),
                     ListTile(
                       leading: Icon(Icons.location_on),
                       title: Text('ENDEREÇO'),
                       subtitle: Text(
-                        'Rua teste, 76 Bairro: teste, Cidade: teste, Complemento: Teste',
+                        'Rua Marechal Floriano Peixoto, 386 Bairro: Centro Historico, Cidade: Porto Alegre, Complemento: apto 15',
                         softWrap: true,
                       ),
                     ),
@@ -76,18 +76,18 @@ class ProfilePage extends StatelessWidget {
                     ListTile(
                       leading: Icon(Icons.build),
                       title: Text('Outras informações'),
-                      subtitle: Text('usuario teste'),
+                      subtitle: Text('Proprietario da Winners'),
                     ),
                     ListTile(
                       leading: Icon(Icons.build),
-                      title: Text('Outras informações'),
-                      subtitle: Text('exemplo@exemplo.com.br'),
+                      title: Text('Telefone'),
+                      subtitle: Text('051 9 9400-4829'),
                     ),
                     ListTile(
                       leading: Icon(Icons.build),
                       title: Text('Outras informações'),
                       subtitle: Text(
-                        'Rua teste, 76 Bairro: teste, Cidade: teste,',
+                        'Buscamos da melhor forma facilitar sua vida,',
                         softWrap: true,
                       ),
                     ),
