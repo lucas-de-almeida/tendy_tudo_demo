@@ -40,6 +40,8 @@ const List<Opcao> opcoes = const <Opcao>[
   const Opcao(titulo: 'Bricks', icon: Icons.copyright),
   const Opcao(titulo: 'Brechós', icon: Icons.store_mall_directory),
   const Opcao(titulo: 'Venda aqui', icon: Icons.monetization_on_outlined),
+  const Opcao(titulo: 'Diversos', icon: Icons.shopping_bag_outlined),
+  const Opcao(titulo: 'Antiquario', icon: Icons.umbrella),
 ];
 
 class OpcaoCard extends StatelessWidget {

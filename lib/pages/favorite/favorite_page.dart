@@ -121,30 +121,6 @@ class FavoritePage extends StatelessWidget {
                                 borderColor: ColorThemeApp,
                                 spacing: 0.0,
                               ),
-                              /* Row(
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.star,
-                                    color: ColorThemeApp,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ColorThemeApp,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ColorThemeApp,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: ColorThemeApp,
-                                  ),
-                                  Icon(
-                                    Icons.star_border,
-                                    color: ColorThemeApp,
-                                  ),
-                                ],
-                              ), */
                               Text.rich(
                                 TextSpan(children: [
                                   WidgetSpan(
@@ -173,7 +149,7 @@ class FavoritePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 10.0),
                     Text(
-                      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?",
+                      "Um aconchegante café em estilo seculo XIX, trazendo de volta todo romantismo e sabor da comida caseira e do café moido na hora",
                       textAlign: TextAlign.justify,
                       style: TextStyle(
                         fontWeight: FontWeight.w300,
@@ -191,7 +167,7 @@ class FavoritePage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?",
+                      "Trazemos esta semana a incrivel oportunidade de você tornar seu primeiro encontro em uma ocasião magica, na noite do romance venha curtir musica ao vivo e um encontro as cegas",
                       textAlign: TextAlign.justify,
                       style: TextStyle(
                         fontWeight: FontWeight.w300,
