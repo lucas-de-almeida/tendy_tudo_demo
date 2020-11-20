@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import 'package:tendytudo_demo/pages/form/form_page.dart';
 import 'package:tendytudo_demo/pages/login/controllers/login_controller.dart';
 import 'package:tendytudo_demo/utils/app_constant.dart';
 
@@ -148,11 +149,11 @@ class LoginPage extends StatelessWidget {
                         //     onPressed: () {},
                         //   ),
                         // ),
-                        Container(
+                        /*  Container(
                           color: Colors.white54,
                           width: 2.0,
                           height: 20.0,
-                        ),
+                        ), */
                         Expanded(
                           child: FlatButton(
                             textColor: Colors.white70,
@@ -163,7 +164,7 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              Get.offAndToNamed('/FormPage');
+                              Get.off(FormPage());
                             },
                           ),
                         ),
