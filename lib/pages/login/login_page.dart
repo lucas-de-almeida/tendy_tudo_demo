@@ -141,13 +141,13 @@ class LoginPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        Expanded(
-                          child: FlatButton(
-                            textColor: Colors.white70,
-                            child: Text("Crie sua conta".toUpperCase()),
-                            onPressed: () {},
-                          ),
-                        ),
+                        // Expanded(
+                        //   child: FlatButton(
+                        //     textColor: Colors.white70,
+                        //     child: Text("Crie sua conta".toUpperCase()),
+                        //     onPressed: () {},
+                        //   ),
+                        // ),
                         Container(
                           color: Colors.white54,
                           width: 2.0,
@@ -156,8 +156,15 @@ class LoginPage extends StatelessWidget {
                         Expanded(
                           child: FlatButton(
                             textColor: Colors.white70,
-                            child: Text("Esqueceu sua senha?".toUpperCase()),
-                            onPressed: () {},
+                            child: Text(
+                              "Seja um parceiro".toUpperCase(),
+                              style: TextStyle(
+                                fontSize: 24,
+                              ),
+                            ),
+                            onPressed: () {
+                              Get.offAndToNamed('/FormPage');
+                            },
                           ),
                         ),
                       ],
