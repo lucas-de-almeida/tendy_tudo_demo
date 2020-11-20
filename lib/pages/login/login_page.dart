@@ -164,7 +164,7 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              Get.off(FormPage());
+                              Get.to(FormPage());
                             },
                           ),
                         ),
