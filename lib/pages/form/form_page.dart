@@ -9,6 +9,7 @@ class FormPage extends StatelessWidget {
   final TextEditingController telefoneController = TextEditingController();
   final TextEditingController ramoController = TextEditingController();
   final TextEditingController cidadeController = TextEditingController();
+  GlobalKey _formKey = GlobalKey<FormState>();
 
   static const routeName = '/FormPage';
   @override
@@ -25,6 +26,7 @@ class FormPage extends StatelessWidget {
           alignment: Alignment.center,
           child: SingleChildScrollView(
             child: Form(
+              key: _formKey,
               child: Card(
                 elevation: 8,
                 margin: EdgeInsets.all(8),
