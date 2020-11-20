@@ -9,7 +9,7 @@ class FormPage extends StatelessWidget {
   final TextEditingController telefoneController = TextEditingController();
   final TextEditingController ramoController = TextEditingController();
   final TextEditingController cidadeController = TextEditingController();
-  GlobalKey _formKey = GlobalKey<FormState>();
+  final GlobalKey _formKey = GlobalKey<FormState>();
 
   static const routeName = '/FormPage';
   @override
