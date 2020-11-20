@@ -4,6 +4,12 @@ import 'package:get/get.dart';
 import 'form_controller.dart';
 
 class FormPage extends StatelessWidget {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController telefoneController = TextEditingController();
+  final TextEditingController ramoController = TextEditingController();
+  final TextEditingController cidadeController = TextEditingController();
+
   static const routeName = '/FormPage';
   @override
   Widget build(BuildContext context) {
@@ -27,21 +33,21 @@ class FormPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: 'Nome completo',
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
+                          decoration: InputDecoration(
+                            hintText: 'Nome completo',
+                            border: OutlineInputBorder(),
+                          ),
+                          controller: nameController),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          hintText: 'E-mail',
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            hintText: 'E-mail',
+                            border: OutlineInputBorder(),
+                          ),
+                          controller: emailController),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -52,6 +58,7 @@ class FormPage extends StatelessWidget {
                           hintText: '(DDD) X XXXX XXXX',
                           border: OutlineInputBorder(),
                         ),
+                        controller: telefoneController,
                       ),
                     ),
                     Padding(
@@ -62,6 +69,7 @@ class FormPage extends StatelessWidget {
                           hintText: ' ex: Comércio, açougue, etc.',
                           border: OutlineInputBorder(),
                         ),
+                        controller: ramoController,
                       ),
                     ),
                     Padding(
@@ -71,6 +79,7 @@ class FormPage extends StatelessWidget {
                           labelText: 'Cidade',
                           border: OutlineInputBorder(),
                         ),
+                        controller: cidadeController,
                       ),
                     ),
                     SizedBox(
