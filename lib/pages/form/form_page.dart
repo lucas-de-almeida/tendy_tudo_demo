@@ -4,17 +4,17 @@ import 'package:get/get.dart';
 import 'form_controller.dart';
 
 class FormPage extends StatelessWidget {
-  final TextEditingController nameController = TextEditingController();
+  /* final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController telefoneController = TextEditingController();
   final TextEditingController ramoController = TextEditingController();
-  final TextEditingController cidadeController = TextEditingController();
-  final GlobalKey _formKey = GlobalKey<FormState>();
+  final TextEditingController cidadeController = TextEditingController(); */
 
   static const routeName = '/FormPage';
   @override
   Widget build(BuildContext context) {
     return GetBuilder<FormController>(
+      init: FormController(),
       builder: (_) => Scaffold(
         appBar: AppBar(
           title: Text(
@@ -26,7 +26,7 @@ class FormPage extends StatelessWidget {
           alignment: Alignment.center,
           child: SingleChildScrollView(
             child: Form(
-              key: _formKey,
+              key: _.formKey,
               child: Card(
                 elevation: 8,
                 margin: EdgeInsets.all(8),
@@ -35,21 +35,35 @@ class FormPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'Nome completo',
-                            border: OutlineInputBorder(),
-                          ),
-                          controller: nameController),
+                        decoration: InputDecoration(
+                          hintText: 'Nome completo',
+                          border: OutlineInputBorder(),
+                        ),
+                        onChanged: (value) {
+                          _.nameValue = value;
+                        },
+                        validator: (value) {
+                          if (value.isEmpty) return 'Campo obrigatório!';
+                          return null;
+                        },
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            hintText: 'E-mail',
-                            border: OutlineInputBorder(),
-                          ),
-                          controller: emailController),
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          hintText: 'E-mail',
+                          border: OutlineInputBorder(),
+                        ),
+                        onChanged: (value) {
+                          _.emailValue = value;
+                        },
+                        validator: (value) {
+                          if (value.isEmpty) return 'Campo obrigatório!';
+                          return null;
+                        },
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -60,7 +74,13 @@ class FormPage extends StatelessWidget {
                           hintText: '(DDD) X XXXX XXXX',
                           border: OutlineInputBorder(),
                         ),
-                        controller: telefoneController,
+                        onChanged: (value) {
+                          _.phoneValue = value;
+                        },
+                        validator: (value) {
+                          if (value.isEmpty) return 'Campo obrigatório!';
+                          return null;
+                        },
                       ),
                     ),
                     Padding(
@@ -71,7 +91,13 @@ class FormPage extends StatelessWidget {
                           hintText: ' ex: Comércio, açougue, etc.',
                           border: OutlineInputBorder(),
                         ),
-                        controller: ramoController,
+                        onChanged: (value) {
+                          _.activityValue = value;
+                        },
+                        validator: (value) {
+                          if (value.isEmpty) return 'Campo obrigatório!';
+                          return null;
+                        },
                       ),
                     ),
                     Padding(
@@ -81,14 +107,22 @@ class FormPage extends StatelessWidget {
                           labelText: 'Cidade',
                           border: OutlineInputBorder(),
                         ),
-                        controller: cidadeController,
+                        onChanged: (value) {
+                          _.cityValue = value;
+                        },
+                        validator: (value) {
+                          if (value.isEmpty) return 'Campo obrigatório!';
+                          return null;
+                        },
                       ),
                     ),
                     SizedBox(
                       height: Get.width * 0.1,
                     ),
                     RaisedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _.saveForm();
+                      },
                       child: Text(
                         'Enviar Formulário',
                       ),

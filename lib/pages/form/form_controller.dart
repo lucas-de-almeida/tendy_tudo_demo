@@ -1,22 +1,34 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:get/get.dart';
 
 class FormController extends GetxController {
-  TextEditingController nameController = TextEditingController();
+  Rx<GlobalKey<FormState>> _formKey = GlobalKey<FormState>().obs;
+  GlobalKey<FormState> get formKey => _formKey.value;
 
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController get emailController => _emailController;
-  set emailController(var value) => _emailController.text = value;
+  RxString _nameValue = RxString();
+  String get nameValue => _nameValue.value;
+  set nameValue(String value) => _nameValue.value = value;
 
-  TextEditingController _telefoneController = TextEditingController();
-  TextEditingController get telefoneController => _telefoneController;
-  set telefoneController(var value) => _telefoneController.text = value;
+  RxString _emailValue = RxString();
+  String get emailValue => _emailValue.value;
+  set emailValue(String value) => _emailValue.value = value;
 
-  TextEditingController _ramoController = TextEditingController();
-  TextEditingController get ramoController => _ramoController;
-  set ramoController(var value) => _ramoController.text = value;
+  RxString _phoneValue = RxString();
+  String get phoneValue => _phoneValue.value;
+  set phoneValue(String value) => _phoneValue.value = value;
 
-  TextEditingController _cidadeController = TextEditingController();
-  TextEditingController get cidadeController => _cidadeController;
-  set cidadeController(var value) => _cidadeController.text = value;
+  RxString _activityValue = RxString();
+  String get activityValue => _activityValue.value;
+  set activityValue(String value) => _activityValue.value = value;
+
+  RxString _cityValue = RxString();
+  String get cityValue => _cityValue.value;
+  set cityValue(String value) => _cityValue.value = value;
+
+  void saveForm() {
+    if (formKey.currentState.validate()) {
+      print('VALIDATE');
+    } else
+      print('NOT VALIDATE');
+  }
 }
