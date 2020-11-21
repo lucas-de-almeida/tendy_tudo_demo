@@ -28,7 +28,9 @@ class FormController extends GetxController {
   void saveForm() {
     if (formKey.currentState.validate()) {
       print('VALIDATE');
+      print('Tamanho ${phoneValue.length}');
     } else
       print('NOT VALIDATE');
+    print('Tamanho ${phoneValue.length}');
   }
 }

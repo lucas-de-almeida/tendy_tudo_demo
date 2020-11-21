@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import 'form_controller.dart';
 
 class FormPage extends StatelessWidget {
-  /* final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController telefoneController = TextEditingController();
-  final TextEditingController ramoController = TextEditingController();
-  final TextEditingController cidadeController = TextEditingController(); */
+  final phoneMaskFormatter = MaskTextInputFormatter(
+      mask: '(###) # ####-####', filter: {"#": RegExp(r'[0-9]')});
 
   static const routeName = '/FormPage';
   @override
@@ -43,7 +42,10 @@ class FormPage extends StatelessWidget {
                           _.nameValue = value;
                         },
                         validator: (value) {
-                          if (value.isEmpty) return 'Campo obrigatório!';
+                          if (value.isEmpty)
+                            return 'Preenchimento obrigatório!';
+                          else if (value.length < 3) return 'Nome muito curto!';
+
                           return null;
                         },
                       ),
@@ -60,7 +62,11 @@ class FormPage extends StatelessWidget {
                           _.emailValue = value;
                         },
                         validator: (value) {
-                          if (value.isEmpty) return 'Campo obrigatório!';
+                          if (value.isEmpty)
+                            return 'Preenchimento obrigatório!';
+                          else if (!GetUtils.isEmail(value)) {
+                            return 'Insira um email válido';
+                          }
                           return null;
                         },
                       ),
@@ -69,16 +75,22 @@ class FormPage extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                         keyboardType: TextInputType.numberWithOptions(),
+                        inputFormatters: [
+                          phoneMaskFormatter,
+                        ],
                         decoration: InputDecoration(
                           labelText: 'Telefone',
-                          hintText: '(DDD) X XXXX XXXX',
+                          hintText: 'Ex: (051) 9 9999-9999',
                           border: OutlineInputBorder(),
                         ),
                         onChanged: (value) {
                           _.phoneValue = value;
                         },
                         validator: (value) {
-                          if (value.isEmpty) return 'Campo obrigatório!';
+                          if (value.isEmpty)
+                            return 'Campo obrigatório!';
+                          else if (value.length < 17)
+                            return 'Número incompleto!';
                           return null;
                         },
                       ),
