@@ -48,6 +48,7 @@ class FormPage extends StatelessWidget {
 
                           return null;
                         },
+                        textInputAction: TextInputAction.next,
                       ),
                     ),
                     Padding(
@@ -69,6 +70,7 @@ class FormPage extends StatelessWidget {
                           }
                           return null;
                         },
+                        textInputAction: TextInputAction.next,
                       ),
                     ),
                     Padding(
@@ -93,6 +95,7 @@ class FormPage extends StatelessWidget {
                             return 'Número incompleto!';
                           return null;
                         },
+                        textInputAction: TextInputAction.next,
                       ),
                     ),
                     Padding(
@@ -110,6 +113,7 @@ class FormPage extends StatelessWidget {
                           if (value.isEmpty) return 'Campo obrigatório!';
                           return null;
                         },
+                        textInputAction: TextInputAction.next,
                       ),
                     ),
                     Padding(
@@ -126,6 +130,7 @@ class FormPage extends StatelessWidget {
                           if (value.isEmpty) return 'Campo obrigatório!';
                           return null;
                         },
+                        textInputAction: TextInputAction.done,
                       ),
                     ),
                     SizedBox(
