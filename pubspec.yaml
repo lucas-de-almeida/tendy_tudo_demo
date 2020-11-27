@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  #pacote envio de email
+  mailer: ^3.0.4
   #bloco banco back4
   parse_server_sdk: ^1.0.27
   #pacote de transição carrocel

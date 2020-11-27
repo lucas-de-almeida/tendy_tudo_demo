@@ -16,6 +16,7 @@ class FormPage extends StatelessWidget {
       init: FormController(),
       builder: (_) => Scaffold(
         appBar: AppBar(
+          backgroundColor: Color(0xFF007838),
           title: Text(
             'ENTRE EM CONTATO CONOSCO!',
           ),
@@ -142,8 +143,9 @@ class FormPage extends StatelessWidget {
                       },
                       child: Text(
                         'Enviar Formulário',
+                        style: TextStyle(color: Colors.white),
                       ),
-                      color: Colors.blueAccent,
+                      color: Color(0xFF007838),
                     ),
                     SizedBox(
                       height: 20,
