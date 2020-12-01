@@ -25,132 +25,143 @@ class FormPage extends StatelessWidget {
           height: Get.height,
           alignment: Alignment.center,
           child: SingleChildScrollView(
-            child: Form(
-              key: _.formKey,
-              child: Card(
-                elevation: 8,
-                margin: EdgeInsets.all(8),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: 'Nome completo',
-                          border: OutlineInputBorder(),
-                        ),
-                        onChanged: (value) {
-                          _.nameValue = value;
-                        },
-                        validator: (value) {
-                          if (value.isEmpty)
-                            return 'Preenchimento obrigatório!';
-                          else if (value.length < 3) return 'Nome muito curto!';
+            child: Obx(
+              () => Visibility(
+                visible: _.isLoading,
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+                replacement: Form(
+                  key: _.formKey,
+                  child: Card(
+                    elevation: 8,
+                    margin: EdgeInsets.all(8),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              hintText: 'Nome completo',
+                              border: OutlineInputBorder(),
+                            ),
+                            onChanged: (value) {
+                              _.nameValue = value;
+                            },
+                            validator: (value) {
+                              if (value.isEmpty)
+                                return 'Preenchimento obrigatório!';
+                              else if (value.length < 3)
+                                return 'Nome muito curto!';
 
-                          return null;
-                        },
-                        textInputAction: TextInputAction.next,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          hintText: 'E-mail',
-                          border: OutlineInputBorder(),
+                              return null;
+                            },
+                            textInputAction: TextInputAction.next,
+                          ),
                         ),
-                        onChanged: (value) {
-                          _.emailValue = value;
-                        },
-                        validator: (value) {
-                          if (value.isEmpty)
-                            return 'Preenchimento obrigatório!';
-                          else if (!GetUtils.isEmail(value)) {
-                            return 'Insira um email válido';
-                          }
-                          return null;
-                        },
-                        textInputAction: TextInputAction.next,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        keyboardType: TextInputType.numberWithOptions(),
-                        inputFormatters: [
-                          phoneMaskFormatter,
-                        ],
-                        decoration: InputDecoration(
-                          labelText: 'Telefone',
-                          hintText: 'Ex: (051) 9 9999-9999',
-                          border: OutlineInputBorder(),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              hintText: 'E-mail',
+                              border: OutlineInputBorder(),
+                            ),
+                            onChanged: (value) {
+                              _.emailValue = value;
+                            },
+                            validator: (value) {
+                              if (value.isEmpty)
+                                return 'Preenchimento obrigatório!';
+                              else if (!GetUtils.isEmail(value)) {
+                                return 'Insira um email válido';
+                              }
+                              return null;
+                            },
+                            textInputAction: TextInputAction.next,
+                          ),
                         ),
-                        onChanged: (value) {
-                          _.phoneValue = value;
-                        },
-                        validator: (value) {
-                          if (value.isEmpty)
-                            return 'Campo obrigatório!';
-                          else if (value.length < 17)
-                            return 'Número incompleto!';
-                          return null;
-                        },
-                        textInputAction: TextInputAction.next,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          labelText: 'Ramo de atividade',
-                          hintText: ' ex: Comércio, açougue, etc.',
-                          border: OutlineInputBorder(),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            keyboardType: TextInputType.numberWithOptions(),
+                            inputFormatters: [
+                              phoneMaskFormatter,
+                            ],
+                            decoration: InputDecoration(
+                              labelText: 'Telefone',
+                              hintText: 'Ex: (051) 9 9999-9999',
+                              border: OutlineInputBorder(),
+                            ),
+                            onChanged: (value) {
+                              _.phoneValue = value;
+                            },
+                            validator: (value) {
+                              if (value.isEmpty)
+                                return 'Campo obrigatório!';
+                              else if (value.length < 17)
+                                return 'Número incompleto!';
+                              return null;
+                            },
+                            textInputAction: TextInputAction.next,
+                          ),
                         ),
-                        onChanged: (value) {
-                          _.activityValue = value;
-                        },
-                        validator: (value) {
-                          if (value.isEmpty) return 'Campo obrigatório!';
-                          return null;
-                        },
-                        textInputAction: TextInputAction.next,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          labelText: 'Cidade',
-                          border: OutlineInputBorder(),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              labelText: 'Ramo de atividade',
+                              hintText: ' ex: Comércio, açougue, etc.',
+                              border: OutlineInputBorder(),
+                            ),
+                            onChanged: (value) {
+                              _.activityValue = value;
+                            },
+                            validator: (value) {
+                              if (value.isEmpty) return 'Campo obrigatório!';
+                              return null;
+                            },
+                            textInputAction: TextInputAction.next,
+                          ),
                         ),
-                        onChanged: (value) {
-                          _.cityValue = value;
-                        },
-                        validator: (value) {
-                          if (value.isEmpty) return 'Campo obrigatório!';
-                          return null;
-                        },
-                        textInputAction: TextInputAction.done,
-                      ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              labelText: 'Cidade',
+                              border: OutlineInputBorder(),
+                            ),
+                            onChanged: (value) {
+                              _.cityValue = value;
+                            },
+                            validator: (value) {
+                              if (value.isEmpty) return 'Campo obrigatório!';
+                              return null;
+                            },
+                            textInputAction: TextInputAction.done,
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.width * 0.1,
+                        ),
+                        Obx(() => RaisedButton(
+                              onPressed: _.isLoading
+                                  ? null
+                                  : () {
+                                      _.saveForm();
+                                    },
+                              child: Text(
+                                'Enviar Formulário',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              color: Color(0xFF007838),
+                            )),
+                        SizedBox(
+                          height: 20,
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: Get.width * 0.1,
-                    ),
-                    RaisedButton(
-                      onPressed: () {
-                        _.saveForm();
-                      },
-                      child: Text(
-                        'Enviar Formulário',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: Color(0xFF007838),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
