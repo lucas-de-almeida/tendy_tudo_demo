@@ -32,7 +32,7 @@ class LoginPage extends StatelessWidget {
                       child: Image.asset('assets/tendytudologo.png'),
                     ),
                     Text(
-                      "TendyTudo ".toUpperCase(),
+                      "TENDYAaZ ",
                       style: TextStyle(
                           color: Colors.white70,
                           fontSize: 24.0,
